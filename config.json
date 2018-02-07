@@ -1,0 +1,21 @@
+{
+    "logger": {
+        "directory": "log"
+    },
+    "port": 8081,
+    "host": "127.0.0.1",
+    "client": {
+        "path": "/",
+        "libraries": "node_modules",
+        "directory": "dist",
+        "config": {
+            "extensions": ["html"],
+            "fallthrough": true,
+            "index": "index.html",
+            "redirect": true
+        }
+    },
+    "api": {
+        "path": "/api"
+    }
+}
