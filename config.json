@@ -6,13 +6,24 @@
     "host": "127.0.0.1",
     "client": {
         "path": "/",
-        "libraries": "node_modules",
-        "directory": "dist",
-        "config": {
-            "extensions": ["html"],
-            "fallthrough": true,
-            "index": "index.html",
-            "redirect": true
+        "bin": {
+            "path": "/",
+            "directory": "dist",
+            "config": {
+                "extensions": ["html"],
+                "fallthrough": true,
+                "index": "index.html",
+                "redirect": true
+            }
+        },
+        "lib": {
+            "path": "/lib",
+            "directory": "node_modules",
+            "config": {
+                "extensions": ["js"],
+                "fallthrough": false,
+                "redirect": false
+            }
         }
     },
     "api": {

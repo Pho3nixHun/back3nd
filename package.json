@@ -18,6 +18,8 @@
     "express": "^4.16.2",
     "express-list-endpoints": "^3.0.1",
     "frontexpress": "^1.2.1",
+    "path-to-regexp": "^2.1.0",
+    "url-parse": "^1.2.0",
     "winston": "^2.4.0"
   }
 }
