@@ -14,6 +14,10 @@ class Request {
             origin: { value: origin }
         });
     }
+
+    toString() {
+        return `${this.hostname}/${this.pathname}`;
+    }
 }
 
 export default Request;

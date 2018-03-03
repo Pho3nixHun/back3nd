@@ -2,7 +2,7 @@
 
 class Response extends Promise {
 
-    static get STATE() {
+    static get State() {
         return {
             PENDING: 'pending',
             RESOLVED: 'resolved',
@@ -10,23 +10,15 @@ class Response extends Promise {
         }
     }
 
-    constructor() {
+    constructor(request) {
         let __private = {
-            state: Response.STATE.PENDING,
+            state: Response.State.PENDING,
             storage: new Map()
         }
-        super((resolve, reject) => Object.assign(properties, { resolve, reject }));
-        Object.defineProperty(this, '__private', {
-            get: () => __private
-        });
+        super((resolve, reject) => Object.assign(__private, { resolve, reject }));
         Object.defineProperties(this, {
-            __private: { get: () => __private }, 
-            end: {
-                value() {
-                    properties.state = Response.STATE.RESOLVED;
-                    properties.resolve(details);
-                }
-            }
+            __private: { value: __private },
+            req: { value: req },
         });
     }
 
@@ -60,13 +52,13 @@ class Response extends Promise {
     }
 
     reject(reason) {
-        this.__private.state = Response.STATE.REJECTED;
+        this.__private.state = Response.State.REJECTED;
         this.__private.result = reason;
         this.__private.reject(reason);
     }
 
     resolve(result) {
-        this.__private.state = Response.STATE.RESOLVED;
+        this.__private.state = Response.State.RESOLVED;
         this.__private.result = result;
         this.__private.resolve(result);
     }
