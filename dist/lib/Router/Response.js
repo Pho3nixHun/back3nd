@@ -18,7 +18,7 @@ class Response extends Promise {
         super((resolve, reject) => Object.assign(__private, { resolve, reject }));
         Object.defineProperties(this, {
             __private: { value: __private },
-            req: { value: req },
+            req: { value: request },
         });
     }
 
@@ -61,6 +61,10 @@ class Response extends Promise {
         this.__private.state = Response.State.RESOLVED;
         this.__private.result = result;
         this.__private.resolve(result);
+    }
+
+    finally(act) {
+
     }
 
     end(result) {
